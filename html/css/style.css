@@ -1,0 +1,66 @@
+#container {
+width: 100vw;
+height: 100vh;
+background-color:rgb(255, 240, 240);
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center
+}
+
+body {
+margin: 0px;
+}
+
+#form{
+
+    width: 500px;
+    height: 600px;
+    border-style: square;
+    border-radius: 10px;
+
+}
+
+#btn {
+    color: springgreen;
+  }
+
+.alinharCentro{
+    
+        text-align:center;
+        
+
+}
+
+#cpfSaida{
+    background-color: transparent;
+    text-align:center;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(0, 2, 116);
+
+    width: 100%;
+
+    border-color: transparent;
+
+    background-color: transparent;
+
+    margin-top: -180px;
+
+}
+
+#img{
+
+
+    margin-top: 30px;
+
+}
+
+
+#form{
+    background-color: white;
+}
+
+#btn-gerar{
+    margin-top: 155px;
+}

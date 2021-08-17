@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Page inicial</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+  <div id="container">
+
+    <form id="form">
+      <div class="mb-3">
+        <label  class="form-label">1. Digite o CPF:</label>
+        <input type="text" class="form-control" id="cpf" oninput="mascara(this)">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Stuação:</label>
+        <input type="text" class="form-control" id="situacao" placeholder="Situação" readonly>
+      </div>
+      <div class="alinharCentro">
+
+        <button type="button" class="btn btn-secondary" id="btn-validar">Validar</button>
+
+      </div>
+
+      <div class="alinharCentro">
+
+        <div id="img">
+
+          <img src="frenteCpf.png">
+
+          <input type="text" class="form-control" id="cpfSaida" placeholder="XXX.XXX.XXX-XX" readonly>
+
+          <button type="button" class="btn btn-secondary" id="btn-gerar">Gerar</button>
+
+
+        </div>
+
+
+      </div>
+
+
+      <footer><a href="https://github.com/M4rcioOliveira">By Marcio Oliveira - GitHub:
+          https://github.com/M4rcioOliveira</a> </footer>
+
+    </form>
+
+  </div>
+
+  <!---Script BootStrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+
+
+  <script>
+
+    $(document).ready(function () {
+
+      $("#btn-validar").click(function () {
+
+        var cpf = $("#cpf").val();
+
+        var cpfSemMask = cpf.replaceAll('.', '').replaceAll('-', '')
+
+        var urlStr = "https://aw-validador-gerador-cpf.herokuapp.com/api/validador?cpf=" + cpfSemMask;
+
+        $.ajax({
+
+          url: urlStr,
+          type: "get",
+          dataType: "json",
+          success: function (data) {
+
+
+            $("#situacao").val(data.situacao);
+
+            $("#cpfSaida").val(data.cpf)
+
+          },
+
+          error: function (erro) {
+            console.log(erro);
+          }
+
+        });
+
+      });
+
+    });
+
+
+  </script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $("#btn-gerar").click(function () {
+
+        var urlStr = "https://aw-validador-gerador-cpf.herokuapp.com/api/gerador";
+
+        $.ajax({
+
+          url: urlStr,
+          type: "get",
+          dataType: "json",
+          success: function (data) {
+
+            console.log(data)
+
+            $("#situacao").val(data.situacao);
+
+            $("#cpfSaida").val(data.cpf)
+
+          },
+
+          error: function (erro) {
+            console.log(erro);
+          }
+
+        });
+
+      });
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>
