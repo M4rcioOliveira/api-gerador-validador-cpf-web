@@ -1,6 +1,6 @@
 #  Sobre
 
-Esse projeto consiste em aplicação front end consumindo uma api rest que valida e gera CPF's aleatórios.
+Esse projeto consiste em aplicação web com o  front end consumindo uma api rest que valida e gera CPF's aleatórios.
 
 ## Tecnologias
  -  Java
