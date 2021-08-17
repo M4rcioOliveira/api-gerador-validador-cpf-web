@@ -19,9 +19,6 @@ Esse projeto consiste em aplicação web com o  front end consumindo uma api res
 
 ## Passos para Executar o Projeto
 
-
- - Clone esse projeto para sua máquina e abra em sua IDE favorita.
-
  - Abra o arquivo index no seu navegador web favorito e faça os testes inserindo CPF's e gerando novos;
   
  **API disponível no Heroku.**
